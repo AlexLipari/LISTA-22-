@@ -3,11 +3,12 @@ let autoras = ["Cristiane", "Sara", "Fabiana", "Ligia", "Bianca"]
 let anos = [2022, 2021, 2019, 2018, 2016]
 let idiomas = ["Italiano", "Portugues", "Ingles", "Portugues", "Italiano"]
 
-// BuscarLivroAutor("Sara")
-// buscarLivroAno(2016)
-// buscarPorAutorAnoMinimo("Ligia", 2018)
-// buscarLivroPeloTitulo("Biografia2")
+BuscarLivroAutor("Sara")
+buscarLivroAno(2016)
+buscarPorAutorAnoMinimo("Ligia", 2018)
+buscarLivroPeloTitulo("Biografia2")
 buscarPeloIdioma("Italiano")
+console.log(ordenarLivros(titulo, autoras, anos, idiomas))
 
 function BuscarLivroAutor(parametroAutor) {
     let livrosAux = []
@@ -64,4 +65,20 @@ function buscarPeloIdioma(idiomaParametro) {
     })
     console.log("idiomas:", idiomaParametro)
     livroAux.forEach(livro => console.log(livro))
+}
+
+function ordenarLivros(tituloParametro, autoraParametro, anoParametro, idiomaParametro) {
+    tituloParametro = titulo.sort((a, b) => {
+        return a.localeCompare(b)
+    })
+    autoraParametro = autoras.sort((a, b) => {
+        return a.localeCompare(b)
+    })
+    anoParametro = anos.sort((a, b) => {
+        return a - b
+    })
+    idiomaParametro = idiomas.sort((a, b) => {
+        return a.localeCompare(b)
+    })
+    console.log(titulo, autoras, anos, idiomas)
 }
